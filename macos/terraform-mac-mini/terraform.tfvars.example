@@ -1,0 +1,42 @@
+# Copy to terraform.tfvars and edit. terraform.tfvars is git-ignored.
+
+computer_name = "rob-mac-mini"
+time_zone     = "America/Denver"
+
+homebrew_formulae = [
+  "git",
+  "gh",
+  "jq",
+  "wget",
+  "coreutils",
+  "mas",
+  "ansible",
+]
+
+homebrew_casks = [
+  "visual-studio-code",
+  "powershell",
+  "iterm2",
+  "rectangle",
+  "google-chrome",
+  "tailscale",
+]
+
+# Look IDs up with: mas search <name>
+mas_apps = {
+  "Magnet" = 441258766
+}
+
+dock_tile_size = 40
+dock_autohide  = true
+screenshot_dir = "~/Pictures/Screenshots"
+
+enable_firewall      = true
+enable_remote_login  = true # headless build host
+server_power_profile = true
+
+project_directories = [
+  "~/Projects",
+  "~/Scripts",
+  "~/Projects/terraform",
+]
