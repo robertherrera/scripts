@@ -4,6 +4,9 @@ An example of using Terraform to bring a brand-new Mac mini from "just finished
 Setup Assistant" to a configured workstation or always-on build host, in one
 `terraform apply`.
 
+A plain bash version of the same configuration, with no Terraform required,
+lives in [`../mac-mini-setup`](../mac-mini-setup).
+
 ## How this works
 
 There is no first-party Terraform provider for macOS. This configuration treats

@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+#
+# Configuration for setup-mac-mini.sh.
+# Copy to mac-mini.conf and edit, or pass any file with --config.
+# This file is sourced by the script, so it is plain bash - keep it to
+# variable assignments.
+#
+# shellcheck disable=SC2034  # every variable here is read by the script that sources this file
+
+# --- Identity ---------------------------------------------------------------
+
+COMPUTER_NAME="rob-mac-mini"
+
+# IANA time zone. List valid values with: sudo systemsetup -listtimezones
+TIME_ZONE="America/Denver"
+
+# --- Software ---------------------------------------------------------------
+
+# CLI packages installed with `brew install`.
+BREW_FORMULAE=(
+  git
+  gh
+  jq
+  wget
+  coreutils
+  mas # Mac App Store CLI, required for MAS_APPS below
+)
+
+# GUI applications installed with `brew install --cask`.
+BREW_CASKS=(
+  visual-studio-code
+  powershell # keeps the PowerShell scripts in this repo runnable on the mini
+  iterm2
+  rectangle
+  google-chrome
+)
+
+# Mac App Store apps as "id:Name" pairs. Find IDs with: mas search <name>
+# Requires being signed in to the App Store. Leave empty to skip.
+MAS_APPS=(
+  # "441258766:Magnet"
+)
+
+# --- Desktop preferences ----------------------------------------------------
+
+DOCK_TILE_SIZE=44
+DOCK_AUTOHIDE=true
+SCREENSHOT_DIR="$HOME/Pictures/Screenshots"
+SHOW_HIDDEN_FILES=true
+FAST_KEY_REPEAT=true
+
+# --- Security and access ----------------------------------------------------
+
+ENABLE_FIREWALL=true
+REQUIRE_PASSWORD_AFTER_SLEEP=true
+
+# Enable Remote Login (SSH). Set true for a headless build host.
+ENABLE_REMOTE_LOGIN=false
+
+AUTO_SOFTWARE_UPDATES=true
+
+# --- Power ------------------------------------------------------------------
+
+# Treat the mini as always-on: never sleep, restart after a power failure or
+# freeze, wake for network access. Set false to restore laptop-ish defaults.
+SERVER_POWER_PROFILE=true
+
+# --- Filesystem -------------------------------------------------------------
+
+PROJECT_DIRECTORIES=(
+  "$HOME/Projects"
+  "$HOME/Scripts"
+)
